@@ -735,9 +735,7 @@
     <h3 id="modal-titulo">Agendar Evento</h3>
     <p id="modal-desc">Elige tu aplicación de calendario favorita</p>
     <div class="modal-opciones">
-      <a id="link-gcal"  class="btn-gcal"  href="#" target="_blank" rel="noopener">📅 Google Calendar</a>
-      <a id="link-apple" class="btn-apple" href="#" target="_blank" rel="noopener">🍎 Apple Calendar / iCal</a>
-      <a id="link-ics"   class="btn-ics"   href="#" download>💾 Descargar .ics (Outlook &amp; otros)</a>
+      <a id="link-gcal" class="btn-gcal" href="#" target="_blank" rel="noopener">📅 Agendar en Google Calendar</a>
     </div>
     <button class="btn-close" onclick="document.getElementById('modal').classList.remove('open')">Cerrar</button>
   </div>
@@ -763,34 +761,7 @@
       + `&location=${encodeURIComponent(lugar)}`;
     document.getElementById('link-gcal').href = gcalUrl;
 
-    // Apple / .ics genérico (se genera al hacer clic)
-    const icsContent = generarICS(titulo, lugar, desc, inicio, fin);
-    const blob = new Blob([icsContent], { type: 'text/calendar' });
-    const url  = URL.createObjectURL(blob);
-    document.getElementById('link-apple').href = url;
-    document.getElementById('link-ics').href   = url;
-    document.getElementById('link-ics').download = titulo.replace(/\s+/g,'-') + '.ics';
-
     document.getElementById('modal').classList.add('open');
-  }
-
-  function generarICS(titulo, lugar, desc, inicio, fin) {
-    const uid = Date.now() + '@sanbvt2026';
-    return [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//Fiestas San Buenaventura 2026//ES',
-      'BEGIN:VEVENT',
-      `UID:${uid}`,
-      `DTSTAMP:${new Date().toISOString().replace(/[-:.]/g,'').slice(0,15)}Z`,
-      `DTSTART:${inicio}`,
-      `DTEND:${fin}`,
-      `SUMMARY:${titulo}`,
-      `DESCRIPTION:${desc}`,
-      `LOCATION:${lugar}`,
-      'END:VEVENT',
-      'END:VCALENDAR'
-    ].join('\r\n');
   }
 
   function cerrarModal(e) {
