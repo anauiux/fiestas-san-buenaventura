@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fiestas Patronales San Buenaventura 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── VARIABLES ─────────────────────────────────────── */
+    :root {
+      --rojo:    #C0392B;
+      --oro:     #D4AF37;
+      --oro-claro: #F0D060;
+      --cafe:    #4A2C0A;
+      --crema:   #FDF6E3;
+      --verde:   #1A5276;
+      --negro:   #1A1A1A;
+      --sombra:  rgba(74,44,10,0.18);
+    }
+
+    /* ─── RESET ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--crema);
+      color: var(--negro);
+      overflow-x: hidden;
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 2rem 1rem 4rem;
+    }
+
+    /* Hero background image — CAMBIA esta URL por tu foto */
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(26,26,26,0.62) 0%, rgba(74,44,10,0.78) 100%),
+        url('img/hero.jpg') center/cover no-repeat;
+      z-index: 0;
+    }
+
+    /* Patrón decorativo tipo bordado encima del hero */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(212,175,55,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(192,57,43,0.12) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
+    .escudo {
+      /* CAMBIA src por tu escudo o imagen */
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--oro);
+      object-fit: cover;
+      margin-bottom: 1.4rem;
+      box-shadow: 0 0 0 6px rgba(212,175,55,0.2);
+    }
+
+    .escudo-placeholder {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--oro);
+      background: rgba(212,175,55,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.8rem;
+      margin: 0 auto 1.4rem;
+      box-shadow: 0 0 0 6px rgba(212,175,55,0.2);
+    }
+
+    .orla {
+      color: var(--oro-claro);
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.65rem, 1.8vw, 0.85rem);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 6vw, 4.2rem);
+      line-height: 1.1;
+      color: #fff;
+      text-shadow: 2px 4px 18px rgba(0,0,0,0.5);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span { color: var(--oro-claro); }
+
+    .hero-sub {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.8vw, 1.45rem);
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 1.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    .fechas-badge {
+      display: inline-block;
+      background: var(--rojo);
+      color: #fff;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.85rem, 2vw, 1.05rem);
+      letter-spacing: 0.2em;
+      padding: 0.55rem 2.2rem;
+      border: 2px solid var(--oro);
+      border-radius: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 18px rgba(192,57,43,0.45);
+    }
+
+    .hero-decorline {
+      width: 120px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--oro), transparent);
+      margin: 1.4rem auto;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      animation: bounce 2s infinite;
+      color: var(--oro);
+      font-size: 1.5rem;
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ─── SECCIÓN CRONOGRAMA ─────────────────────────────── */
+    .cronograma {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.2rem 5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-title .linea {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; margin-bottom: 0.5rem;
+    }
+    .section-title .linea::before,
+    .section-title .linea::after {
+      content: '';
+      flex: 1; max-width: 120px;
+      height: 1px; background: var(--oro);
+    }
+    .section-title h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 4vw, 2.4rem);
+      color: var(--cafe);
+      letter-spacing: 0.08em;
+    }
+    .section-title p {
+      font-style: italic;
+      color: #666;
+      font-size: 1.05rem;
+    }
+
+    /* ─── GRID DE DÍAS ───────────────────────────────────── */
+    .dias-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    /* ─── CARD DE DÍA ────────────────────────────────────── */
+    .dia-card {
+      background: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px var(--sombra);
+      border: 1px solid rgba(212,175,55,0.2);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .dia-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px var(--sombra);
+    }
+
+    /* Franja superior con foto del día */
+    .card-img-wrap {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+    }
+    /* CAMBIA el fondo/imagen de cada día aquí ↓
+       Se puede poner una imagen diferente por tarjeta
+       usando la clase .dia-N { background-image: url('img/dia-N.jpg'); } */
+    .card-img-wrap .bg {
+      position: absolute; inset: 0;
+      background: center/cover no-repeat;
+      transition: transform 0.4s;
+    }
+    .dia-card:hover .card-img-wrap .bg { transform: scale(1.05); }
+
+    /* Colores de respaldo si no hay imagen */
+    .dia-1 .bg { background-color: #7B241C; background-image: url('img/dia-1.jpg'); }
+    .dia-2 .bg { background-color: #1A5276; background-image: url('img/dia-2.jpg'); }
+    .dia-3 .bg { background-color: #1E8449; background-image: url('img/dia-3.jpg'); }
+    .dia-4 .bg { background-color: #784212; background-image: url('img/dia-4.jpg'); }
+    .dia-5 .bg { background-color: #6C3483; background-image: url('img/dia-5.jpg'); }
+    .dia-6 .bg { background-color: #117A65; background-image: url('img/dia-6.jpg'); }
+    .dia-7 .bg { background-color: #C0392B; background-image: url('img/dia-7.jpg'); }
+
+    .card-img-wrap .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.1) 60%);
+    }
+    .card-img-wrap .dia-label {
+      position: absolute;
+      bottom: 0.9rem; left: 1.1rem;
+    }
+    .dia-label .dia-nombre {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 1px 2px 6px rgba(0,0,0,0.6);
+    }
+    .dia-label .dia-fecha {
+      display: block;
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      color: var(--oro-claro);
+      font-size: 0.92rem;
+    }
+    .card-img-wrap .emoji-icon {
+      position: absolute;
+      top: 0.85rem; right: 1rem;
+      font-size: 1.8rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    }
+
+    /* Cuerpo de la card */
+    .card-body {
+      padding: 1.2rem 1.3rem;
+    }
+
+    .evento-list {
+      list-style: none;
+      margin-bottom: 1.2rem;
+    }
+    .evento-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+      font-size: 0.93rem;
+      line-height: 1.4;
+    }
+    .evento-list li:last-child { border-bottom: none; }
+
+    .hora {
+      flex-shrink: 0;
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--rojo);
+      width: 52px;
+      padding-top: 2px;
+    }
+    .evento-desc { color: #333; }
+
+    /* Botón "Agendar" */
+    .btn-agendar {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(135deg, var(--rojo), #922B21);
+      color: #fff;
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.7rem 1rem;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 2px 10px rgba(192,57,43,0.3);
+      margin-top: 0.1rem;
+    }
+    .btn-agendar:hover {
+      background: linear-gradient(135deg, #922B21, var(--rojo));
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(192,57,43,0.45);
+    }
+    .btn-agendar::before { content: '📅 '; }
+
+    /* ─── GALERÍA / FOTOS ────────────────────────────────── */
+    .galeria-section {
+      background: var(--cafe);
+      padding: 4rem 1.2rem;
+      text-align: center;
+    }
+    .galeria-section .section-title h2 { color: var(--oro-claro); }
+    .galeria-section .section-title .linea::before,
+    .galeria-section .section-title .linea::after { background: rgba(212,175,55,0.5); }
+    .galeria-section p { color: rgba(255,255,255,0.7); }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.8rem;
+      max-width: 1100px;
+      margin: 2rem auto 0;
+    }
+    .galeria-item {
+      /* CAMBIA src a tus fotos */
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 2px;
+      border: 2px solid rgba(212,175,55,0.25);
+    }
+    .galeria-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .galeria-item:hover img { transform: scale(1.07); }
+
+    /* Placeholder cuando no hay imagen */
+    .galeria-placeholder {
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 2rem;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: var(--negro);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.88rem;
+    }
+    footer strong { color: var(--oro); }
+    .footer-viva {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      color: var(--oro-claro);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ─── MODAL AGENDADO ─────────────────────────────────── */
+    .modal-backdrop {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-box {
+      background: var(--crema);
+      border: 2px solid var(--oro);
+      border-radius: 4px;
+      padding: 2.5rem 2rem;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      animation: popIn 0.25s ease;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.88); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+    .modal-box h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--cafe);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    .modal-box p { color: #555; margin-bottom: 1.5rem; font-size: 0.95rem; }
+
+    .modal-opciones {
+      display: flex; flex-direction: column; gap: 0.8rem;
+    }
+    .modal-opciones a {
+      display: block;
+      padding: 0.7rem 1.2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      transition: opacity 0.2s;
+    }
+    .modal-opciones a:hover { opacity: 0.85; }
+    .btn-gcal  { background: #4285F4; color: #fff; }
+    .btn-apple { background: #1C1C1E; color: #fff; }
+    .btn-ics   { background: var(--rojo); color: #fff; }
+    .btn-close {
+      margin-top: 0.8rem;
+      background: none; border: 1px solid #ccc;
+      color: #666; padding: 0.5rem 1.2rem;
+      cursor: pointer; border-radius: 2px;
+      font-family: 'EB Garamond', serif; font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+    .btn-close:hover { border-color: var(--rojo); color: var(--rojo); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 500px) {
+      .dias-grid { grid-template-columns: 1fr; }
+      .galeria-grid { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <!-- ESCUDO: cambia src a tu imagen o quita el bloque y deja el placeholder -->
+    <div class="escudo-placeholder" aria-hidden="true">✦</div>
+    <!--
+    <img class="escudo" src="img/escudo.png" alt="Escudo San Buenaventura" />
+    -->
+
+    <p class="orla">Barrio Centro · Parroquia San Buenaventura · Latacunga</p>
+    <div class="hero-decorline"></div>
+
+    <h1>Fiestas Patronales<br><span>San Buenaventura</span></h1>
+    <p class="hero-sub">En honor al Dr. San Buenaventura</p>
+
+    <div class="hero-decorline"></div>
+    <div class="fechas-badge">4 al 13 de Julio de 2026</div>
+
+    <p style="color:rgba(255,255,255,0.7);margin-top:1.8rem;font-style:italic;font-size:1rem;">
+      El Personaje Mamá Negra 2026 y el Comité de Fiestas<br>invitan a toda la comunidad y visitantes
+    </p>
+  </div>
+
+  <div class="scroll-hint">↓</div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     CRONOGRAMA
+════════════════════════════════════════════════════════ -->
+<section class="cronograma" id="cronograma">
+  <div class="section-title">
+    <div class="linea"><h2>Programa General</h2></div>
+    <p>Toca <em>Agendar evento</em> para añadirlo a tu calendario</p>
+  </div>
+
+  <div class="dias-grid">
+
+    <!-- ─── DÍA 1: Sábado 4 de Julio ─────────────── -->
+    <article class="dia-card dia-1">
+      <div class="card-img-wrap">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+        <span class="emoji-icon">🎆</span>
+        <div class="dia-label">
+          <span class="dia-nombre">Sábado 4 de Julio</span>
+          <span class="dia-fecha">Inicio de las festividades</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <ul class="evento-list">
+          <li><span class="hora">12H00</span><span class="evento-desc">Concentración de directivos para la procesión del Dr. San Buenaventura</span></li>
+          <li><span class="hora">13H00</span><span class="evento-desc">Recibimiento de Prestigiosa Banda de Pueblo</span></li>
+          <li><span class="hora">14H00</span><span class="evento-desc">Procesión por las calles del Barrio Centro</span></li>
+          <li><span class="hora">17H00</span><span class="evento-desc">Misa en honor al Dr. San Buenaventura</span></li>
+          <li><span class="hora">19H00</span><span class="evento-desc">Fuegos pirotécnicos</span></li>
+          <li><span class="hora">21H00</span><span class="evento-desc">Serenata, baile popular — noche de luces y castillos de baile</span></li>
+        </ul>
+        <button class="btn-agendar" onclick='agendar(
+          "Fiestas San Buenaventura - Sábado 4 Julio",
+          "Barrio Centro, Parroquia San Buenaventura, Latacunga, Ecuador",
+          "Procesión, misa, serenata y fuegos pirotécnicos en honor al Dr. San Buenaventura.",
+          "20260704T120000", "20260705T000000"
+        )'>Agendar este día</button>
+      </div>
+    </article>
+
+    <!-- ─── DÍA 2: Domingo 5 de Julio ───────────── -->
+    <article class="dia-card dia-2">
+      <div class="card-img-wrap">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+        <span class="emoji-icon">🐄</span>
+        <div class="dia-label">
+          <span class="dia-nombre">Domingo 5 de Julio</span>
+          <span class="dia-fecha">Tradicional Ensayo General</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <ul class="evento-list">
+          <li><span class="hora">08H00</span><span class="evento-desc">Concentración en la casa del Sr. presidente Gonzalo Mallitásig</span></li>
+          <li><span class="hora">12H00</span><span class="evento-desc">Recibimiento de Prestigiosa Banda Orquesta</span></li>
+          <li><span class="hora">13H00</span><span class="evento-desc">Ensayo general: Ante Albazo · Vacas Locas · Comparsas · Ashangas</span></li>
+        </ul>
+        <button class="btn-agendar" onclick='agendar(
+          "Fiestas San Buenaventura - Ensayo General",
+          "Barrio Centro, Parroquia San Buenaventura, Latacunga, Ecuador",
+          "Tradicional ensayo con Orquesta: Ante Albazo, Vacas Locas, Comparsas y Ashangas.",
+          "20260705T080000", "20260705T200000"
+        )'>Agendar este día</button>
+      </div>
+    </article>
+
+    <!-- ─── DÍA 3: Jueves 9 de Julio ────────────── -->
+    <article class="dia-card dia-3">
+      <div class="card-img-wrap">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+        <span class="emoji-icon">🏳️</span>
+        <div class="dia-label">
+          <span class="dia-nombre">Jueves 9 de Julio</span>
+          <span class="dia-fecha">Embanderamiento</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <ul class="evento-list">
+          <li><span class="hora">14H00</span><span class="evento-desc">Embanderamiento del Barrio Centro a cargo de los moradores</span></li>
+        </ul>
+        <button class="btn-agendar" onclick='agendar(
+          "Fiestas San Buenaventura - Embanderamiento",
+          "Barrio Centro, Parroquia San Buenaventura, Latacunga, Ecuador",
+          "Embanderamiento del Barrio Centro a cargo de los moradores.",
+          "20260709T140000", "20260709T180000"
+        )'>Agendar este día</button>
+      </div>
+    </article>
+
+    <!-- ─── DÍA 4: Viernes 10 de Julio ──────────── -->
+    <article class="dia-card dia-4">
+      <div class="card-img-wrap">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+        <span class="emoji-icon">🎺</span>
+        <div class="dia-label">
+          <span class="dia-nombre">Viernes 10 de Julio</span>
+          <span class="dia-fecha">Preparativos del Ante Albazo</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <ul class="evento-list">
+          <li><span class="hora">14H00</span><span class="evento-desc">Concentración de directivos en casa del Sr. Gonzalo Mallitásig</span></li>
+          <li><span class="hora">16H00</span><span class="evento-desc">Recibimiento de Prestigiosa Banda</span></li>
+          <li><span class="hora">17H00</span><span class="evento-desc">Retiro de la pólvora para el Ante Albazo</span></li>
+        </ul>
+        <button class="btn-agendar" onclick='agendar(
+          "Fiestas San Buenaventura - Preparativos Viernes",
+          "Barrio Centro, Parroquia San Buenaventura, Latacunga, Ecuador",
+          "Banda de pueblo y retiro de pólvora para el Ante Albazo.",
+          "20260710T140000", "20260710T200000"
+        )'>Agendar este día</button>
+      </div>
+    </article>
+
+    <!-- ─── DÍA 5: Sábado 11 de Julio ───────────── -->
+    <article class="dia-card dia-5">
+      <div class="card-img-wrap">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+        <span class="emoji-icon">🌅</span>
+        <div class="dia-label">
+          <span class="dia-nombre">Sábado 11 de Julio</span>
+          <span class="dia-fecha">Ante Albazo · Vísperas</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <ul class="evento-list">
+          <li><span class="hora">01H00</span><span class="evento-desc">Concentración en casa del Sr. presidente Gonzalo Mallitasig</span></li>
+          <li><span class="hora">02H00</span><span class="evento-desc">Banda · Ante Albazo con Albaseras · Vacas Locas</span></li>
+          <li><span class="hora">04H00</span><span class="evento-desc">Desfile desde Barrio La Libertad: Ante Albazo, Vacas Locas, Devotos</span></li>
+          <li><span class="hora">05H00</span><span class="evento-desc">Salvas y dianas, chocolateras, camaretas, voladores y Vacas Locas</span></li>
+          <li><span class="hora">09H00</span><span class="evento-desc">Tradicional ordeño de las Vacas Locas en la plazoleta central</span></li>
+          <li><span class="hora">16H00</span><span class="evento-desc">Recibimiento de Banda</span></li>
+          <li><span class="hora">18H00</span><span class="evento-desc">Fuegos pirotécnicos</span></li>
+          <li><span class="hora">20H00</span><span class="evento-desc">Vísperas: castillos de baile, chiguaguas y Banda de Pueblo</span></li>
+        </ul>
+        <button class="btn-agendar" onclick='agendar(
+          "Fiestas San Buenaventura - Ante Albazo y Vísperas",
+          "Barrio Centro, Parroquia San Buenaventura, Latacunga, Ecuador",
+          "Gran noche de Ante Albazo, Vacas Locas, Salvas, Ordeño y Vísperas con fuegos pirotécnicos.",
+          "20260711T010000", "20260712T000000"
+        )'>Agendar este día</button>
+      </div>
+    </article>
+
+    <!-- ─── DÍA 6: Domingo 12 de Julio ──────────── -->
+    <article class="dia-card dia-6">
+      <div class="card-img-wrap">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+        <span class="emoji-icon">🎭</span>
+        <div class="dia-label">
+          <span class="dia-nombre">Domingo 12 de Julio</span>
+          <span class="dia-fecha">Mamá Negra · Gran Desfile</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <ul class="evento-list">
+          <li><span class="hora">06H00</span><span class="evento-desc">Concentración de directivos, moradores y devotos</span></li>
+          <li><span class="hora">06H30</span><span class="evento-desc">Bandas · Comparsas · Cholas · Ashangas · Danzas</span></li>
+          <li><span class="hora">07H00</span><span class="evento-desc">Misa de inicio de fiesta Mamá Negra 2026 — Párroco Fernando Rodríguez</span></li>
+          <li><span class="hora">08H15</span><span class="evento-desc">Baile de la Mamá Negra y Capitán en el torreón de la iglesia</span></li>
+          <li><span class="hora">09H00</span><span class="evento-desc">Desfile folclórico desde el Barrio Colaisa</span></li>
+          <li><span class="hora">12H00</span><span class="evento-desc">Honores al Dr. San Buenaventura por sus fieles</span></li>
+          <li><span class="hora">16H00</span><span class="evento-desc">Baile popular — Banda Orquesta</span></li>
+        </ul>
+        <button class="btn-agendar" onclick='agendar(
+          "Fiestas San Buenaventura - Mamá Negra y Gran Desfile",
+          "Barrio Centro, Parroquia San Buenaventura, Latacunga, Ecuador",
+          "Misa, Baile de la Mamá Negra, desfile folclórico y baile popular.",
+          "20260712T060000", "20260712T200000"
+        )'>Agendar este día</button>
+      </div>
+    </article>
+
+    <!-- ─── DÍA 7: Lunes 13 de Julio ────────────── -->
+    <article class="dia-card dia-7">
+      <div class="card-img-wrap">
+        <div class="bg"></div>
+        <div class="overlay"></div>
+        <span class="emoji-icon">⛪</span>
+        <div class="dia-label">
+          <span class="dia-nombre">Lunes 13 de Julio</span>
+          <span class="dia-fecha">Clausura · Misa de Gracias</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <ul class="evento-list">
+          <li><span class="hora">05H00</span><span class="evento-desc">Concentración de directivos y moradores</span></li>
+          <li><span class="hora">08H00</span><span class="evento-desc">Concentración con Devotos, Comparsas, Ashangas y Cholas</span></li>
+          <li><span class="hora">09H00</span><span class="evento-desc">Desfile folclórico desde el Barrio La Libertad</span></li>
+          <li><span class="hora">11H00</span><span class="evento-desc">Misa campal de acción de gracias y procesión — Párroco Fernando Rodríguez</span></li>
+          <li><span class="hora">13H00</span><span class="evento-desc">Gran baile popular — Banda Orquesta</span></li>
+        </ul>
+        <button class="btn-agendar" onclick='agendar(
+          "Fiestas San Buenaventura - Clausura",
+          "Barrio Centro, Parroquia San Buenaventura, Latacunga, Ecuador",
+          "Desfile, Misa de acción de gracias y gran baile popular de clausura.",
+          "20260713T050000", "20260713T180000"
+        )'>Agendar este día</button>
+      </div>
+    </article>
+
+  </div><!-- /dias-grid -->
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     GALERÍA — Cambia src de cada img por tus fotos
+════════════════════════════════════════════════════════ -->
+<section class="galeria-section" id="galeria">
+  <div class="section-title">
+    <div class="linea"><h2>Galería</h2></div>
+    <p>Momentos de nuestras fiestas</p>
+  </div>
+
+  <div class="galeria-grid">
+    <!-- Reemplaza src por tus fotos reales. Añade o quita <div class="galeria-item"> según necesites -->
+    <div class="galeria-item"><div class="galeria-placeholder">📷</div></div>
+    <div class="galeria-item"><div class="galeria-placeholder">📷</div></div>
+    <div class="galeria-item"><div class="galeria-placeholder">📷</div></div>
+    <div class="galeria-item"><div class="galeria-placeholder">📷</div></div>
+    <div class="galeria-item"><div class="galeria-placeholder">📷</div></div>
+    <div class="galeria-item"><div class="galeria-placeholder">📷</div></div>
+    <!--
+    <div class="galeria-item"><img src="img/foto1.jpg" alt="Procesión San Buenaventura" loading="lazy" /></div>
+    <div class="galeria-item"><img src="img/foto2.jpg" alt="Mama Negra" loading="lazy" /></div>
+    <div class="galeria-item"><img src="img/foto3.jpg" alt="Vacas Locas" loading="lazy" /></div>
+    -->
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════ -->
+<footer>
+  <p class="footer-viva">¡Viva San Buenaventura!</p>
+  <p>
+    <strong>El Personaje Mamá Negra 2026</strong> · La Directiva y Moradores del Barrio Centro<br>
+    Parroquia San Buenaventura · Latacunga, Ecuador
+  </p>
+  <p style="margin-top:0.8rem;font-size:0.8rem;opacity:0.5;">Del 4 al 13 de Julio 2026</p>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════
+     MODAL — Opciones de calendario
+════════════════════════════════════════════════════════ -->
+<div class="modal-backdrop" id="modal" onclick="cerrarModal(event)">
+  <div class="modal-box" id="modal-box">
+    <h3 id="modal-titulo">Agendar Evento</h3>
+    <p id="modal-desc">Elige tu aplicación de calendario favorita</p>
+    <div class="modal-opciones">
+      <a id="link-gcal"  class="btn-gcal"  href="#" target="_blank" rel="noopener">📅 Google Calendar</a>
+      <a id="link-apple" class="btn-apple" href="#" target="_blank" rel="noopener">🍎 Apple Calendar / iCal</a>
+      <a id="link-ics"   class="btn-ics"   href="#" download>💾 Descargar .ics (Outlook &amp; otros)</a>
+    </div>
+    <button class="btn-close" onclick="document.getElementById('modal').classList.remove('open')">Cerrar</button>
+  </div>
+</div>
+
+
+<script>
+  // ── Datos del evento activo ────────────────────────────
+  let eventoActivo = {};
+
+  function agendar(titulo, lugar, desc, inicio, fin) {
+    eventoActivo = { titulo, lugar, desc, inicio, fin };
+
+    // Actualizar modal
+    document.getElementById('modal-titulo').textContent = titulo;
+    document.getElementById('modal-desc').textContent   = desc;
+
+    // Google Calendar
+    const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE`
+      + `&text=${encodeURIComponent(titulo)}`
+      + `&dates=${inicio}/${fin}`
+      + `&details=${encodeURIComponent(desc)}`
+      + `&location=${encodeURIComponent(lugar)}`;
+    document.getElementById('link-gcal').href = gcalUrl;
+
+    // Apple / .ics genérico (se genera al hacer clic)
+    const icsContent = generarICS(titulo, lugar, desc, inicio, fin);
+    const blob = new Blob([icsContent], { type: 'text/calendar' });
+    const url  = URL.createObjectURL(blob);
+    document.getElementById('link-apple').href = url;
+    document.getElementById('link-ics').href   = url;
+    document.getElementById('link-ics').download = titulo.replace(/\s+/g,'-') + '.ics';
+
+    document.getElementById('modal').classList.add('open');
+  }
+
+  function generarICS(titulo, lugar, desc, inicio, fin) {
+    const uid = Date.now() + '@sanbvt2026';
+    return [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Fiestas San Buenaventura 2026//ES',
+      'BEGIN:VEVENT',
+      `UID:${uid}`,
+      `DTSTAMP:${new Date().toISOString().replace(/[-:.]/g,'').slice(0,15)}Z`,
+      `DTSTART:${inicio}`,
+      `DTEND:${fin}`,
+      `SUMMARY:${titulo}`,
+      `DESCRIPTION:${desc}`,
+      `LOCATION:${lugar}`,
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\r\n');
+  }
+
+  function cerrarModal(e) {
+    if (e.target === document.getElementById('modal'))
+      document.getElementById('modal').classList.remove('open');
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.getElementById('modal').classList.remove('open');
+  });
+</script>
+
+</body>
+</html>
