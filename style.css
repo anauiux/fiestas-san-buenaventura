@@ -290,7 +290,7 @@
       display: block;
       width: 100%;
       text-align: center;
-      background: linear-gradient(135deg, var(--rojo), #D4AF37);
+      background: linear-gradient(135deg, var(--rojo), #033669);
       color: #fff;
       font-family: 'Cinzel', serif;
       font-size: 0.82rem;
@@ -306,7 +306,7 @@
       margin-top: 0.1rem;
     }
     .btn-agendar:hover {
-      background: linear-gradient(135deg, #D4AF37, var(--rojo));
+      background: linear-gradient(135deg, #033669, var(--rojo));
       transform: translateY(-1px);
       box-shadow: 0 4px 14px rgba(192,57,43,0.45);
     }
